@@ -1,12 +1,22 @@
 export default class Player extends Phaser.Physics.Matter.Sprite {
     constructor(data) {
-        let {scene, x, y, texture, frame} = data;
+        let { scene, x, y, texture, frame } = data;
         super(scene.matter.world, x, y, texture, frame);
         this.scene.add.existing(this);
+
+        const { Body, Bodies } = Phaser.Physics.Matter.Matter;
+        var playerCollider = Bodies.circle(this.x, this.y, 15, { isSensor: false, label: 'playerCollider' });
+        var playerSensor = Bodies.circle(this.x, this.y, 31, { isSensor: true, label: 'playerSensor' });
+        const compoundBody = Body.create({
+            parts: [playerCollider, playerSensor],
+            frictionAir: 0.35,
+        });
+        this.setExistingBody(compoundBody);
+        this.setFixedRotation();
     }
 
     static preload(scene) {
-        scene.load.atlas('female','assets/images/female.png', 'assets/images/female_atlas.json')
+        scene.load.atlas('female', 'assets/images/female.png', 'assets/images/female_atlas.json')
         scene.load.animation('female_anim', 'assets/images/female_anim.json')
     }
 
@@ -31,7 +41,7 @@ export default class Player extends Phaser.Physics.Matter.Sprite {
         }
 
         if (Math.abs(this.velocity.y) > 0.1 && this.inputKeys.down.isDown) {
-        this.anims.play("walk-down", true)
+            this.anims.play("walk-down", true)
         } else if ((Math.abs(this.velocity.y) > 0.1 && this.inputKeys.up.isDown)) {
             this.anims.play("walk-up", true)
         } else if ((Math.abs(this.velocity.x) > 0.1 && this.inputKeys.right.isDown)) {
