@@ -1,0 +1,30 @@
+
+body {
+    text-align: center;
+    background-color: black;
+}
+@import url(//db.onlinewebfonts.com/c/cae9571407321e5d5e496ada719e9f63?family=Pixel);
+
+@font-face {font-family: "Pixel"; src: url("//db.onlinewebfonts.com/t/cae9571407321e5d5e496ada719e9f63.eot"); src: url("//db.onlinewebfonts.com/t/cae9571407321e5d5e496ada719e9f63.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/cae9571407321e5d5e496ada719e9f63.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/cae9571407321e5d5e496ada719e9f63.woff") format("woff"), url("//db.onlinewebfonts.com/t/cae9571407321e5d5e496ada719e9f63.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/cae9571407321e5d5e496ada719e9f63.svg#Pixel") format("svg"); }
+
+
+
+
+  h1 {
+    color: white;
+    text-align: center;
+    padding: 30px 30px 0px 30px;
+    font-family: "Pixel", sans-serif;
+
+}
+
+p {
+    font-family: "Pixel", sans-serif;
+    font-size: 30px;
+    padding: 15px 30px 0px 30px;
+    color: white;
+}
+
+img {
+    width: 100px;
+}
